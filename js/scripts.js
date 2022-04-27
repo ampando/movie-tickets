@@ -19,6 +19,10 @@ function Ticket(movie, showTime, age) {
   this.age = age;
 }
 
+
+
+
+
 //let ageCheckResult = 0;
 Ticket.prototype.ageCheck = function() {
   let ageCheckResult;
@@ -45,21 +49,30 @@ Ticket.prototype.movieTime = function() {
   }
 }
 
+
 Ticket.prototype.ticketCost = function() {
   if(this.ageCheck() === "standard" && this.movieTime() === "regular") {
-    return "fullPrice"
+    return 13;
   } else if (this.ageCheck() === "child" && this.movieTime() === "regular" || "matinee") {
-    return "discount"
+    return 7;
   } else if (this.ageCheck() === "senior" && this.movieTime() === "regular" || "matinee") {
-    return "discount"
-  } else {
-    if(this.ageCheck() === "standard" && this.movieTime() === "matinee") {
-      return "discount"
-    }
+    return 7;
+  } else if (this.ageCheck() === "standard" && this.movieTime() === "matinee") {
+    return 7;
   }
-}
 };
 
-let ticket1 = new Ticket("Dune", 7, 42);
-let ticket2 = new Ticket("Batman", 5, 11);
 
+//UI Logic 
+
+$(document).ready(function(){
+  $("#form-one").submit(function(event){
+    event.preventDefault();
+    const inputtedMovieTime = $("#movieTime").val();
+    const inputtedMovieName = $("#movieName").val();
+    const inputtedAgeCheck = $("#ageCheck").val();
+
+    let usrTicket = new Ticket(inputtedMovieName, inputtedMovieTime, inputtedAgeCheck);
+  })
+  
+})
