@@ -1,0 +1,8 @@
+/Users/adriennematosich/Desktop/epicodus/MovieTickets.Solution/MovieTickets/obj/Debug/net5.0/MovieTickets.solution.csproj.AssemblyReference.cache
+/Users/adriennematosich/Desktop/epicodus/MovieTickets.Solution/MovieTickets/obj/Debug/net5.0/MovieTickets.solution.GeneratedMSBuildEditorConfig.editorconfig
+/Users/adriennematosich/Desktop/epicodus/MovieTickets.Solution/MovieTickets/obj/Debug/net5.0/MovieTickets.solution.AssemblyInfoInputs.cache
+/Users/adriennematosich/Desktop/epicodus/MovieTickets.Solution/MovieTickets/obj/Debug/net5.0/MovieTickets.solution.AssemblyInfo.cs
+/Users/adriennematosich/Desktop/epicodus/MovieTickets.Solution/MovieTickets/obj/Debug/net5.0/MovieTickets.solution.csproj.CoreCompileInputs.cache
+/Users/adriennematosich/Desktop/epicodus/MovieTickets.Solution/MovieTickets/obj/Debug/net5.0/MovieTickets.solution.MvcApplicationPartsAssemblyInfo.cache
+/Users/adriennematosich/Desktop/epicodus/MovieTickets.Solution/MovieTickets/obj/Debug/net5.0/MovieTickets.solution.RazorAssemblyInfo.cache
+/Users/adriennematosich/Desktop/epicodus/MovieTickets.Solution/MovieTickets/obj/Debug/net5.0/MovieTickets.solution.RazorAssemblyInfo.cs
