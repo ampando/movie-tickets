@@ -1,0 +1,21 @@
+@{
+  Layout = "_Layout";
+}
+
+@model MovieTickets.Models.Theater
+
+<h2>Add A Movie</h2>
+
+<h4>Add a movie for this theater: @Html.DisplayFor(model => model.Name)</h4>
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model => model.TheaterId)
+
+    @Html.Label("Select Movie")
+    @Html.DropDownList("MovieId")
+
+    <input type="submit" value="Save" />
+}
+
+<p>@Html.ActionLink("Back to list", "Index")</p>

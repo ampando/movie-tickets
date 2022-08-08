@@ -1,0 +1,23 @@
+@{
+  Layout = "_Layout";
+}
+
+@using MovieTickets.Models;
+@model List<MovieTickets.Models.Theater>;
+
+<h1>Students</h1>
+
+@if (@Model.Count == 0)
+{
+  <h3>No students have been added yet!</h3>
+}
+
+<ul>
+  @foreach(Theater theater in Model)
+  {
+    <li>@Html.ActionLink($"{theater.Name}", "Details", new { id = theater.TheaterId })</li>
+  }
+</ul>
+
+<p>@Html.ActionLink("Add new theater", "Create")</p>
+<p>@Html.ActionLink("Home", "Index", "Home")</p>
