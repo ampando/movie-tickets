@@ -1,0 +1,15 @@
+@{
+  Layout = "_Layout";
+
+}
+
+@model MovieTickets.Models.Movie
+
+<h2>Are You Sure You Want To Delete This Movie?</h2>
+
+@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)
+@using (Html.BeginForm())
+{
+  <input type="submit" value="Delete" />
+}
+@Html.ActionLink("Back to Movie List", "Index")

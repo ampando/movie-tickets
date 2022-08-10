@@ -1,0 +1,23 @@
+@{
+  Layout = "_Layout";
+}
+
+@model MovieTickets.Models.Theater
+
+<h4>Add New Theater</h4>
+
+@using (Html.BeginForm())
+{
+  @Html.LabelFor(model => model.Name)
+  @Html.TextBoxFor(model => model.Name)
+
+  @Html.LabelFor(model => model.City)
+  @Html.TextBoxFor(model => model.City)
+ 
+
+  @Html.Label("Select Movie")
+  @Html.DropDownList("MovieId")
+
+  <input type="submit" value="Add New Theater" class="btn btn-default" />
+}
+<p>@Html.ActionLink("Show all Theaters", "Index")</p>

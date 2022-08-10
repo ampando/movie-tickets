@@ -1,0 +1,34 @@
+@{
+  Layout = "_Layout";
+}
+
+@model MovieTickets.Models.Theater
+
+<h2>Theater Details</h2>
+<hr />
+<h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h3>
+
+@if(@Model.JoinEntities.Count == 0)
+{
+  <p>This theater does not belong to any movies.</p>
+}
+else
+{
+  <h4>Movies playing at theater:</h4>
+  <ul>
+  @foreach(var join in Model.JoinEntities)
+  {
+    <li>@join.Movie.Name</li>
+    @using (Html.BeginForm("DeleteTheaters", "Theaters"))
+    {
+      @Html.Hidden("joinId", @join.MovieTheaterId)
+      <input type="submit" value="Delete"/>
+    }
+  }
+  </ul>
+}
+
+<p>@Html.ActionLink("Back to list", "Index")</p>
+<p>@Html.ActionLink("Edit Theater", "Edit", new { id = Model.TheaterId })</p>
+<p>@Html.ActionLink("Delete Theater", "Delete", new { id = Model.TheaterId })</p>
+<p>@Html.ActionLink("Add a Movie", "AddMovie", new { id = Model.TheaterId })</p>

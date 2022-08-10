@@ -1,0 +1,15 @@
+@{
+  Layout = "_Layout";
+}
+
+@model MovieTickets.Models.Movie
+
+<h4>Add a New Movie to the Marquee</h4>
+@using (Html.BeginForm())
+{
+  @Html.LabelFor(model => model.Name)
+  @Html.TextBoxFor(model => model.Name)
+  <input type="submit" value= "Add New Movie" />
+}
+
+<p>@Html.ActionLink("Show All Movies", "Index")</p>

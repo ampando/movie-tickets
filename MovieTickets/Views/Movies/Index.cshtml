@@ -1,0 +1,17 @@
+@{ 
+  Layout = "_Layout";
+}
+
+@using MovieTickets.Models;
+
+<hi>Now Playing</hi>
+
+@if (@Model.Count == 0)
+{
+  <h2>No movies have been added to the marquee yet!</h2>
+}
+
+</ul>
+
+<p>@Html.ActionLink("Add new movie", "Create")</p>
+<p>@Html.ActionLink("Home", "Index", "Home")</p>
