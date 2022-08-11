@@ -16,6 +16,47 @@ namespace MovieTickets.solution.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 64)
                 .HasAnnotation("ProductVersion", "5.0.0");
 
+            modelBuilder.Entity("MovieTickets.Models.Concessions", b =>
+                {
+                    b.Property<int>("ConcessionsId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Booze")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.Property<string>("Candy")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.Property<string>("Snacks")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.HasKey("ConcessionsId");
+
+                    b.ToTable("Concessions");
+                });
+
+            modelBuilder.Entity("MovieTickets.Models.ConcessionsTheater", b =>
+                {
+                    b.Property<int>("ConcessionsTheaterId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<int>("ConcessionsId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TheaterId")
+                        .HasColumnType("int");
+
+                    b.HasKey("ConcessionsTheaterId");
+
+                    b.HasIndex("ConcessionsId");
+
+                    b.HasIndex("TheaterId");
+
+                    b.ToTable("ConcessionsTheater");
+                });
+
             modelBuilder.Entity("MovieTickets.Models.Movie", b =>
                 {
                     b.Property<int>("MovieId")
@@ -68,6 +109,25 @@ namespace MovieTickets.solution.Migrations
                     b.ToTable("Theaters");
                 });
 
+            modelBuilder.Entity("MovieTickets.Models.ConcessionsTheater", b =>
+                {
+                    b.HasOne("MovieTickets.Models.Concessions", "Concessions")
+                        .WithMany("JoinSnacks")
+                        .HasForeignKey("ConcessionsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("MovieTickets.Models.Theater", "Theater")
+                        .WithMany("JoinSnacks")
+                        .HasForeignKey("TheaterId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Concessions");
+
+                    b.Navigation("Theater");
+                });
+
             modelBuilder.Entity("MovieTickets.Models.MovieTheater", b =>
                 {
                     b.HasOne("MovieTickets.Models.Movie", "Movie")
@@ -87,6 +147,11 @@ namespace MovieTickets.solution.Migrations
                     b.Navigation("Theater");
                 });
 
+            modelBuilder.Entity("MovieTickets.Models.Concessions", b =>
+                {
+                    b.Navigation("JoinSnacks");
+                });
+
             modelBuilder.Entity("MovieTickets.Models.Movie", b =>
                 {
                     b.Navigation("JoinEntities");
@@ -95,6 +160,8 @@ namespace MovieTickets.solution.Migrations
             modelBuilder.Entity("MovieTickets.Models.Theater", b =>
                 {
                     b.Navigation("JoinEntities");
+
+                    b.Navigation("JoinSnacks");
                 });
 #pragma warning restore 612, 618
         }

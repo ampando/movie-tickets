@@ -15,9 +15,10 @@ public TheaterController(MovieTicketsContext db)
 {
   _db = db;
 }
+
 public ActionResult Index()
     {
-      return View(_db.Movies.ToList());
+      return View(_db.Theaters.ToList());
     }
 
     public ActionResult Create()
